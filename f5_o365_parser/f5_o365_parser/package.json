@@ -1,0 +1,21 @@
+{
+  "name": "f5_o365_parser",
+  "version": "0.0.1",
+  "description": "f5_o365_parser",
+  "main": "f5_o365_parse.js",
+  "author": {
+    "name": "David A. Homoney",
+    "license": "GNU",
+  },
+  "keywords": [
+    "f5",
+    "o365",
+    "xml",
+    "json",
+    "afm",
+    "irules"
+  ],
+  "dependencies": {
+    "xml2js": "^0.4.17"
+  }
+}
