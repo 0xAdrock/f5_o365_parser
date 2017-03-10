@@ -25,7 +25,7 @@ var callback = function (response) {
         parser = new xml2js.Parser();
         parser.parseString(body, function (err, result) {
             //var jsondata = JSON.parse(result);
-            fs.writeFile("./addresslist.json", util.inspect(result, false, null));
+            fs.writeFile("./addresslist.json", result);
             //console.log("Address:", jsondata.address);
             console.log('Done');
         });
