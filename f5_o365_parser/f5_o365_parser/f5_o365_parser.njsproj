@@ -29,8 +29,21 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="f5_o365_parse.js" />
+    <Compile Include="lib\getxml.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="lib\parseandstore.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="main.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Content Include="package.json" />
     <Content Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="lib\" />
+    <Folder Include="data\" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />

@@ -1,21 +1,36 @@
 {
   "name": "f5_o365_parser",
   "version": "0.0.1",
-  "description": "f5_o365_parser",
+  "description": "Node.js program to get the O365 XML data, convert to JSON, and use iControl REST to create AFM address lists and needed Datagroups.",
   "main": "f5_o365_parse.js",
-  "author": {
-    "name": "David A. Homoney",
-    "license": "GNU",
+  "dependencies": {
+    "ip-regex": "^2.1.0",
+    "jsonfile": "^2.4.0",
+    "line-reader": "^0.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dhomoney/f5_o365_parser.git"
   },
   "keywords": [
     "f5",
-    "o365",
-    "xml",
-    "json",
+    "ltm",
     "afm",
-    "irules"
+    "o365",
+    "firewall",
+    "f5",
+    "networks",
+    "office",
+    "365"
   ],
-  "dependencies": {
-    "xml2js": "^0.4.17"
-  }
+  "author": "David A. Homoney",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dhomoney/f5_o365_parser/issues"
+  },
+  "homepage": "https://github.com/dhomoney/f5_o365_parser#readme"
 }
