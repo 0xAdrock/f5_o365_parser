@@ -59,12 +59,14 @@ function processXML(xmlfile) {
 
         var regDate = /"(.*?)"/;
         var regAddress = /\<address\>(.*?)\<\/address\>/;
+        var regURL = /https?\:\/\/(.*?)/;
         //console.log(line);
 
         if (last) {
             console.log("End of File\n\n");
             console.log("Number of IPv4 Addresses: " + ipv4Addresses.length);
             console.log("Number of IPv6 Addresses: " + ipv6Addresses.length);
+            console.log("Number of URL Addresses: " + domains.length);
             return false;
         }
 
@@ -86,7 +88,16 @@ function processXML(xmlfile) {
                 //console.log("IPv6 Address: " + address);
                 ipv6Addresses.push(address);
             } else {
-                //console.log("Domain Address " + address + " ignored");
+                console.log("Domain Address " + address + " ignored");
+                if (address.includes("http")) {
+                    console.log("Found URL with HTTP in it " + address);
+                    var urlArray = address.match(regURL);
+                    console.log("urlArray: " + urlArray + " Length: " + urlArray.length);
+                    var url = urlArray[1];
+                    domains.push(address);
+                } else {
+                    domains.push(address);
+                }
             }
         }
 
