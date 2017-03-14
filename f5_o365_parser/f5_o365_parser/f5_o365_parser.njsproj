@@ -28,6 +28,9 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="f5_icontol.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="f5_o365_parse.js" />
     <Compile Include="getxml.js">
       <SubType>Code</SubType>

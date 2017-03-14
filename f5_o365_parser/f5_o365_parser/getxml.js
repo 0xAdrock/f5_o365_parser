@@ -1,7 +1,7 @@
 ﻿var https = require('https');
 var fs = require('fs');
 
-function getXML(response) {
+module.exports = function(response) {
     
     var options = {
         host: 'support.content.office.net',
@@ -28,4 +28,4 @@ function getXML(response) {
     }
 }
 
-module.exports = getXML;
+//module.exports = getXML;
