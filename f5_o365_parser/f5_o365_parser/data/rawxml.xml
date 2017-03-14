@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<products updated="3/8/2017">
+<products updated="3/14/2017">
   <product name="WAC">
     <addresslist type="IPv6">
       <address>2603:1020:201::37</address>
@@ -380,6 +380,7 @@
       <address>*.teams.skype.com</address>
       <address>*.teams.microsoft.com</address>
       <address>*.trouter.io</address>
+      <address>compass-ssl.microsoft.com</address>
       <address>config.edge.skype.com</address>
       <address>graph.skype.com</address>
       <address>latest-swx.cdn.skype.com</address>
@@ -395,9 +396,12 @@
       <address>swx.cdn.skype.com</address>
       <address>teams.microsoft.com</address>
       <address>teams.skype.com</address>
+      <address>videoplayercdn.osi.office.net</address>
     </addresslist>
     <addresslist type="IPv4">
       <address>13.67.56.225/32</address>
+      <address>13.67.109.136/32</address>
+      <address>13.67.180.128/32</address>
       <address>13.67.186.105/32</address>
       <address>13.67.209.156/32</address>
       <address>13.67.214.76/32</address>
@@ -414,43 +418,54 @@
       <address>13.73.155.42/32</address>
       <address>13.75.42.168/32</address>
       <address>13.75.125.228/32</address>
+      <address>13.75.127.250/32</address>
       <address>13.75.154.195/32</address>
       <address>13.75.159.17/32</address>
       <address>13.75.159.51/32</address>
       <address>13.76.188.52/32</address>
       <address>13.76.189.79/32</address>
+      <address>13.76.241.210/32</address>
       <address>13.77.5.70/32</address>
       <address>13.77.7.84/32</address>
       <address>13.78.93.8/32</address>
       <address>13.78.94.7/32</address>
       <address>13.78.95.252/32</address>
       <address>13.78.112.190/32</address>
+      <address>13.79.153.60/32</address>
+      <address>13.79.161.153/32</address>
       <address>13.88.183.247/32</address>
       <address>13.89.44.84/32</address>
       <address>13.91.40.251/32</address>
       <address>13.91.108.91/32</address>
       <address>13.91.252.242/32</address>
+      <address>13.93.149.3/32</address>
       <address>13.93.209.18/32</address>
       <address>13.94.47.37/32</address>
       <address>13.95.88.228/32</address>
+      <address>13.95.234.10/32</address>
       <address>13.95.236.192/32</address>
       <address>13.107.3.0/24</address>
-      <address>13.107.64.0/18</address>
       <address>13.107.8.0/24</address>
+      <address>13.107.64.0/18</address>
       <address>23.97.78.16/32</address>
       <address>23.97.169.134/32</address>
       <address>23.99.101.49/32</address>
+      <address>23.99.101.118/32</address>
       <address>23.99.115.104/32</address>
+      <address>23.99.121.38/32</address>
       <address>23.99.121.255/32</address>
       <address>23.99.122.87/32</address>
       <address>23.99.124.9/32</address>
+      <address>23.99.195.117/32</address>
       <address>23.99.213.58/32</address>
+      <address>23.101.61.176/32</address>
       <address>23.101.115.193/32</address>
       <address>23.101.116.26/32</address>
       <address>23.101.156.198/32</address>
       <address>23.101.158.111/32</address>
       <address>23.102.17.214/32</address>
       <address>23.102.24.114/32</address>
+      <address>40.68.225.164/32</address>
       <address>40.68.229.156/32</address>
       <address>40.68.230.133/32</address>
       <address>40.69.45.108/32</address>
@@ -465,12 +480,16 @@
       <address>40.78.71.48/32</address>
       <address>40.78.98.202/32</address>
       <address>40.78.145.194/32</address>
+      <address>40.78.146.128/32</address>
       <address>40.79.38.101/32</address>
+      <address>40.79.41.254/32</address>
       <address>40.79.74.185/32</address>
+      <address>40.79.82.21/32</address>
       <address>40.83.17.24/32</address>
       <address>40.83.176.46/32</address>
       <address>40.84.28.125/32</address>
       <address>40.86.90.132/32</address>
+      <address>40.86.92.191/32</address>
       <address>40.112.151.117/32</address>
       <address>40.113.87.220/32</address>
       <address>40.113.136.240/32</address>
@@ -483,11 +502,15 @@
       <address>40.118.244.106/32</address>
       <address>40.122.165.60/32</address>
       <address>40.122.168.86/32</address>
+      <address>40.123.43.195/32</address>
       <address>40.123.50.17/32</address>
       <address>40.127.97.30/32</address>
       <address>40.127.129.109/32</address>
       <address>52.112.0.0/14</address>
+      <address>52.160.110.94/32</address>
       <address>52.163.224.242/32</address>
+      <address>52.163.225.1/32</address>
+      <address>52.163.229.196/32</address>
       <address>52.163.230.187/32</address>
       <address>52.163.231.50/32</address>
       <address>52.163.231.126/32</address>
@@ -500,11 +523,14 @@
       <address>52.169.105.194/32</address>
       <address>52.169.105.219/32</address>
       <address>52.169.106.115/32</address>
+      <address>52.169.190.101/32</address>
       <address>52.174.144.192/32</address>
       <address>52.174.166.73/32</address>
       <address>52.174.166.107/32</address>
       <address>52.174.166.156/32</address>
       <address>52.174.186.47/32</address>
+      <address>52.175.24.155/32</address>
+      <address>52.175.37.105/32</address>
       <address>52.175.38.240/32</address>
       <address>52.178.34.159/32</address>
       <address>52.178.36.12/32</address>
@@ -515,10 +541,13 @@
       <address>52.178.148.152/32</address>
       <address>52.178.158.225/32</address>
       <address>52.178.179.194/32</address>
+      <address>52.187.79.90/32</address>
       <address>104.40.91.215/32</address>
+      <address>104.40.189.177/32</address>
       <address>104.42.229.230/32</address>
       <address>104.44.195.0/24</address>
       <address>104.44.200.0/23</address>
+      <address>104.45.18.178/32</address>
       <address>104.45.231.95/32</address>
       <address>104.46.96.162/32</address>
       <address>104.46.97.194/32</address>
@@ -527,16 +556,23 @@
       <address>104.208.28.54/32</address>
       <address>104.208.31.113/32</address>
       <address>104.208.152.137/32</address>
+      <address>104.209.188.207/32</address>
       <address>104.210.1.218/32</address>
       <address>111.221.101.75/32</address>
+      <address>137.116.66.252/32</address>
       <address>137.116.157.126/32</address>
       <address>137.116.159.19/32</address>
       <address>137.116.159.228/32</address>
+      <address>137.116.248.105/32</address>
       <address>137.117.109.221/32</address>
+      <address>137.117.128.25/32</address>
+      <address>157.56.176.68/32</address>
       <address>168.61.100.177/32</address>
+      <address>168.61.145.101/32</address>
       <address>168.61.152.29/32</address>
       <address>168.61.155.249/32</address>
       <address>168.63.245.120/32</address>
+      <address>191.237.44.60/32</address>
       <address>207.46.155.141/32</address>
     </addresslist>
   </product>
@@ -917,6 +953,8 @@
     </addresslist>
     <addresslist type="IPv4">
       <address>13.67.56.225/32</address>
+      <address>13.67.109.136/32</address>
+      <address>13.67.180.128/32</address>
       <address>13.67.186.105/32</address>
       <address>13.67.209.156/32</address>
       <address>13.67.214.76/32</address>
@@ -934,11 +972,13 @@
       <address>13.73.155.42/32</address>
       <address>13.75.42.168/32</address>
       <address>13.75.125.228/32</address>
+      <address>13.75.127.250/32</address>
       <address>13.75.154.195/32</address>
       <address>13.75.159.17/32</address>
       <address>13.75.159.51/32</address>
       <address>13.76.188.52/32</address>
       <address>13.76.189.79/32</address>
+      <address>13.76.241.210/32</address>
       <address>13.77.1.253/32</address>
       <address>13.77.5.70/32</address>
       <address>13.77.7.84/32</address>
@@ -947,6 +987,8 @@
       <address>13.78.94.7/32</address>
       <address>13.78.95.252/32</address>
       <address>13.78.112.190/32</address>
+      <address>13.79.153.60/32</address>
+      <address>13.79.161.153/32</address>
       <address>13.88.183.247/32</address>
       <address>13.88.241.210/32</address>
       <address>13.89.44.84/32</address>
@@ -955,11 +997,13 @@
       <address>13.91.252.242/32</address>
       <address>13.92.80.132/32</address>
       <address>13.92.136.118/32</address>
+      <address>13.93.149.3/32</address>
       <address>13.93.167.93/32</address>
       <address>13.93.209.18/32</address>
       <address>13.94.47.37/32</address>
       <address>13.95.88.228/32</address>
       <address>13.95.233.176/32</address>
+      <address>13.95.234.10/32</address>
       <address>13.95.236.192/32</address>
       <address>13.107.3.0/24</address>
       <address>13.107.8.0/24</address>
@@ -969,11 +1013,15 @@
       <address>23.97.164.28/32</address>
       <address>23.97.169.134/32</address>
       <address>23.99.101.49/32</address>
+      <address>23.99.101.118/32</address>
       <address>23.99.115.104/32</address>
+      <address>23.99.121.38/32</address>
       <address>23.99.121.255/32</address>
       <address>23.99.122.87/32</address>
       <address>23.99.124.9/32</address>
+      <address>23.99.195.117/32</address>
       <address>23.99.213.58/32</address>
+      <address>23.101.61.176/32</address>
       <address>23.101.115.193/32</address>
       <address>23.101.116.26/32</address>
       <address>23.101.156.198/32</address>
@@ -986,6 +1034,7 @@
       <address>23.103.176.192/27</address>
       <address>23.103.178.128/26</address>
       <address>23.103.178.192/27</address>
+      <address>40.68.225.164/32</address>
       <address>40.68.229.156/32</address>
       <address>40.68.230.133/32</address>
       <address>40.69.45.108/32</address>
@@ -1005,13 +1054,17 @@
       <address>40.78.71.48/32</address>
       <address>40.78.98.202/32</address>
       <address>40.78.145.194/32</address>
+      <address>40.78.146.128/32</address>
       <address>40.79.38.101/32</address>
+      <address>40.79.41.254/32</address>
       <address>40.79.74.185/32</address>
+      <address>40.79.82.21/32</address>
       <address>40.83.17.24/32</address>
       <address>40.83.176.46/32</address>
       <address>40.83.177.162/32</address>
       <address>40.84.28.125/32</address>
       <address>40.86.90.132/32</address>
+      <address>40.86.92.191/32</address>
       <address>40.112.151.117/32</address>
       <address>40.112.188.2/32</address>
       <address>40.113.16.205/32</address>
@@ -1030,6 +1083,7 @@
       <address>40.121.200.212/32</address>
       <address>40.122.165.60/32</address>
       <address>40.122.168.86/32</address>
+      <address>40.123.43.195/32</address>
       <address>40.123.50.17/32</address>
       <address>40.126.239.210/32</address>
       <address>40.126.251.57/32</address>
@@ -1042,7 +1096,10 @@
       <address>51.141.9.8/32</address>
       <address>51.141.12.151/32</address>
       <address>52.112.0.0/14</address>
+      <address>52.160.110.94/32</address>
       <address>52.163.224.242/32</address>
+      <address>52.163.225.1/32</address>
+      <address>52.163.229.196/32</address>
       <address>52.163.230.187/32</address>
       <address>52.163.231.50/32</address>
       <address>52.163.231.126/32</address>
@@ -1055,6 +1112,7 @@
       <address>52.169.105.194/32</address>
       <address>52.169.105.219/32</address>
       <address>52.169.106.115/32</address>
+      <address>52.169.190.101/32</address>
       <address>52.172.53.101/32</address>
       <address>52.172.54.196/32</address>
       <address>52.172.55.238/32</address>
@@ -1063,6 +1121,8 @@
       <address>52.174.166.107/32</address>
       <address>52.174.166.156/32</address>
       <address>52.174.186.47/32</address>
+      <address>52.175.24.155/32</address>
+      <address>52.175.37.105/32</address>
       <address>52.175.38.240/32</address>
       <address>52.178.34.159/32</address>
       <address>52.178.36.12/32</address>
@@ -1075,6 +1135,7 @@
       <address>52.178.179.194/32</address>
       <address>52.185.146.154/32</address>
       <address>52.185.151.102/32</address>
+      <address>52.187.79.90/32</address>
       <address>52.232.129.71/32</address>
       <address>52.232.132.60/32</address>
       <address>52.232.135.81/32</address>
@@ -1086,12 +1147,14 @@
       <address>104.40.75.8/32</address>
       <address>104.40.76.196/32</address>
       <address>104.40.91.215/32</address>
+      <address>104.40.189.177/32</address>
       <address>104.41.207.112/32</address>
       <address>104.41.210.140/32</address>
       <address>104.42.229.230/32</address>
       <address>104.43.12.164/32</address>
       <address>104.44.195.0/24</address>
       <address>104.44.200.0/23</address>
+      <address>104.45.18.178/32</address>
       <address>104.45.231.95/32</address>
       <address>104.46.96.162/32</address>
       <address>104.46.97.194/32</address>
@@ -1100,6 +1163,7 @@
       <address>104.208.28.54/32</address>
       <address>104.208.31.113/32</address>
       <address>104.208.152.137/32</address>
+      <address>104.209.188.207/32</address>
       <address>104.210.1.218/32</address>
       <address>104.210.80.193/32</address>
       <address>104.211.162.59/32</address>
@@ -1120,14 +1184,19 @@
       <address>134.170.54.128/25</address>
       <address>134.170.113.192/26</address>
       <address>134.170.115.128/25</address>
+      <address>137.116.66.252/32</address>
       <address>137.116.132.4/32</address>
       <address>137.116.157.126/32</address>
       <address>137.116.159.19/32</address>
       <address>137.116.159.228/32</address>
+      <address>137.116.248.105/32</address>
       <address>137.117.109.221/32</address>
+      <address>137.117.128.25/32</address>
       <address>157.55.40.128/25</address>
       <address>157.55.238.0/25</address>
+      <address>157.56.176.68/32</address>
       <address>168.61.100.177/32</address>
+      <address>168.61.145.101/32</address>
       <address>168.61.152.29/32</address>
       <address>168.61.155.249/32</address>
       <address>168.63.14.15/32</address>
@@ -1139,6 +1208,7 @@
       <address>191.234.20.241/32</address>
       <address>191.234.21.145/32</address>
       <address>191.234.23.27/32</address>
+      <address>191.237.44.60/32</address>
       <address>207.46.5.0/24</address>
       <address>207.46.155.141/32</address>
       <address>207.46.156.136/32</address>
@@ -1885,7 +1955,7 @@
       <address>168.63.213.238/32</address>
       <address>191.235.95.142/32</address>
       <address>191.237.218.239/32</address>
-      <address>191.238.160.173</address>
+      <address>191.238.160.173/32</address>
       <address>207.46.73.250/32</address>
       <address>207.46.134.255/32</address>
       <address>207.46.141.38/32</address>

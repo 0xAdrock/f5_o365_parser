@@ -1,6 +1,10 @@
-﻿var getXML = require('./lib/getxml');
-var parse = require('./lib/parseandstore');
+﻿var getXML = require('getxml');
+var parse = require('parseandstore');
 var file = '../data/rawxml.xml';
 
-getXML.getXML();
-var data = parse(file);
+getXML();
+processXML(file);
+
+console.log("Number of IPv4 Addresses: " + parse.ipv4Addresses.length);
+console.log("Number of IPv6 Addresses: " + parse.ipv6Addresses.length);
+console.log("Number of URL Addresses: " + parse.domains.length);
