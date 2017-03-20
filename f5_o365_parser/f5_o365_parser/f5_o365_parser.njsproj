@@ -11,7 +11,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>3321a28d-27e2-4352-9dac-08f6699648ec</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>f5_o365_parse.js</StartupFile>
+    <StartupFile>main.js</StartupFile>
     <StartWebBrowser>False</StartWebBrowser>
     <SearchPath>
     </SearchPath>
@@ -31,14 +31,11 @@
     <Compile Include="f5_icontol.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="f5_o365_parse.js" />
+    <Compile Include="main.js" />
     <Compile Include="getxml.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="parseandstore.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="main.js">
       <SubType>Code</SubType>
     </Compile>
     <Content Include="package.json" />
