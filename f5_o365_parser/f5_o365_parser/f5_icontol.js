@@ -9,7 +9,7 @@ ipv4ALCreate = `{ "name": "o365_ipv4_al", "partition": "Common"}`;
 
 var options = {
     user: "admin",
-    password: "Puto!puto1",
+    password: "admin",
     mimetypes: {
         json: ["application/json", "application/json;charset=utf-8"]
     },
