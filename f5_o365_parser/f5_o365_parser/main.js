@@ -2,12 +2,37 @@ var https = require('https');
 var fs = require('fs');
 var ipregex = require('ip-regex');
 var lr = require('line-reader');
+
 var file = './data/rawxml.xml';
-var ipv4Addresses = [];
-var ipv6Addresses = [];
-var domains = [];
+var ipv4Array = [];
+var ipv6Array = [];
+var dnsArray = [];
+var ipv4Addresses = `"addresses": [`;
+var ipv6Addresses = `"addresses": [`;
+var domains = `"addresses": [`;
 
+/* Finishes the formatting of the JSON to F5 iControl format for use by
+the f5_icontrol module.
+*/
 
+function finishedJSON(ipv4, ipv6, dns) {
+    //console.log("Pre-modification Lengths: \n\n");
+    //console.log("IPv4: " + ipv4.length);
+    //console.log("IPv6: " + ipv6.length);
+    //console.log("Type IPv4: " + typeof ipv4);
+    //console.log("Type IPv6: " + typeof ipv6);
+    ipv4 = ipv4.trim();
+    ipv6 = ipv6.trim();
+    //dns = domains.trim();
+    ipv4 = ipv4.slice(0, -1);
+    ipv6 = ipv6.slice(0, -1);
+    //dns = dns.slice(0, -1);
+    ipv4 = ipv4 + "]";
+    ipv6 = ipv6 + "]";
+    fs.writeFileSync("./data/ipv4.json", ipv4);
+    fs.writeFileSync("./data/ipv6.json", ipv6);
+    fs.writeFileSync("./data/domain.json", dns);
+};
 
 //HTTP Request Options
 var options = {
@@ -31,8 +56,6 @@ var getXML = function (response) {
         fs.writeFileSync("./data/rawxml.xml", body);
         console.log("Done Writing to file\n\n");
         processXML(file);
-        
-        //console.log("Address:", jsondata.address);
     });
 }
 
@@ -62,14 +85,17 @@ function processXML(xmlfile) {
 
         if (last) {
             console.log("End of File\n\n");
-            console.log("Number of IPv4 Addresses: " + ipv4Addresses.length);
-            console.log("Number of IPv6 Addresses: " + ipv6Addresses.length);
-            console.log("Number of URL Addresses: " + domains.length);
+            //console.log("Number of IPv4 Addresses: " + ipv4Addresses.length);
+            //console.log("Number of IPv6 Addresses: " + ipv6Addresses.length);
+            //console.log("Number of URL Addresses: " + domains.length);
             //console.log("\n\nJSON of Array\n\n")
             //console.log(JSON.stringify(domains));
-            console.log("\n\n\n\n");
-            console.log("IPv4 Addresses Formatted:\n\n");
-            console.log(JSON.stringify(ipv4Addresses));
+            //console.log("\n\n\n\n");
+            //console.log("IPv4 Addresses Formatted:\n\n");
+            //console.log(ipv4Addresses);
+            removeDup();
+            finishedJSON(ipv4Addresses, ipv6Addresses, domains);
+
             return false;
         }
 
@@ -86,20 +112,22 @@ function processXML(xmlfile) {
             //console.log("IPv6 Address: " + address);
             if (ipregex.v4().test(address)) {
                 //console.log("IPv4 Address: " + address);
-                ipv4Addresses.push("{ \"name\": \"" + address + "\" }");
+                ipv4Array.push(address);
+                //ipv4Addresses = ipv4Addresses + `{ "name": "${address}" }, `;
             } else if (ipregex.v6().test(address)) {
                 //console.log("IPv6 Address: " + address);
-                ipv6Addresses.push("{ \"name\": \"" + address + "\" }");
+                ipv6Array.push(address);
+                //ipv6Addresses = ipv6Addresses + `{ "name": "${address}" }. `;
             } else {
                 //console.log("Domain Address " + address + " ignored");
                 if (address.includes("http")) {
-                    console.log("Found URL with HTTP in it " + address);
+                    //console.log("Found URL with HTTP in it " + address);
                     var urlArray = address.match(regURL);
-                    console.log("urlArray: " + urlArray + " Length: " + urlArray.length);
+                    //console.log("urlArray: " + urlArray + " Length: " + urlArray.length);
                     var url = urlArray[1];
-                    domains.push(address);
+                    dnsArray.push(address);
                 } else {
-                    domains.push(address);
+                    dnsArray.push(address);
                 }
             }
         }
@@ -108,4 +136,37 @@ function processXML(xmlfile) {
 
 
 }
+/*
 
+Since Microsoft sucks, we need to look for duplicates in the converted XML and remove them. This breaks the iControl call to AFM to create the address list. Thanks MS
+
+*/
+
+function removeDup() {
+
+    require('uniq')(ipv4Array);
+    require('uniq')(ipv6Array);
+    require('uniq')(dnsArray);
+
+    ipv4Array.forEach(function (ipv4) {
+
+        //console.log("Building IPv4 JSON");
+        ipv4Addresses = ipv4Addresses + `{ "name": "${ipv4}" }, `;
+
+    });
+
+    ipv6Array.forEach(function (ipv6) {
+
+        //console.log("Building IPv6 JSON");
+        ipv6Addresses = ipv6Addresses + `{ "name": "${ipv6}" }, `;
+
+    });
+
+    dnsArray.forEach(function (dns) {
+
+        //console.log("Building DNS JSON");
+        domains = domains + `{ "name": "${dns}" }, `;
+
+    });
+
+}
