@@ -2,6 +2,8 @@ var https = require('https');
 var fs = require('fs');
 var ipregex = require('ip-regex');
 var lr = require('line-reader');
+var config = ('./data/config.json');
+var icontrol = require('./f5_icontrol.js');
 
 var file = './data/rawxml.xml';
 var ipv4Array = [];
@@ -10,23 +12,20 @@ var dnsArray = [];
 var ipv4Addresses = `"addresses": [`;
 var ipv6Addresses = `"addresses": [`;
 var domains = `"addresses": [`;
+var addlists = ["o365_ipv4_al", "o365_ipv6_al", "o365_dns_al"];
+var addressBase = "https://192.168.1.21/mgmt/tm/security/firewall/address-list/";
 
 /* Finishes the formatting of the JSON to F5 iControl format for use by
 the f5_icontrol module.
 */
 
 function finishedJSON(ipv4, ipv6, dns) {
-    //console.log("Pre-modification Lengths: \n\n");
-    //console.log("IPv4: " + ipv4.length);
-    //console.log("IPv6: " + ipv6.length);
-    //console.log("Type IPv4: " + typeof ipv4);
-    //console.log("Type IPv6: " + typeof ipv6);
     ipv4 = ipv4.trim();
     ipv6 = ipv6.trim();
-    //dns = domains.trim();
+    dns = domains.trim();
     ipv4 = ipv4.slice(0, -1);
     ipv6 = ipv6.slice(0, -1);
-    //dns = dns.slice(0, -1);
+    dns = dns.slice(0, -1);
     ipv4 = ipv4 + "]";
     ipv6 = ipv6 + "]";
     fs.writeFileSync("./data/ipv4.json", ipv4);
@@ -52,18 +51,16 @@ var getXML = function (response) {
         // Data received completely
         // Parse the XML received from MS into JSON
         console.log('\n\nDone Reading XML. Now writing to file.\n\n');
-        //console.log(body);
         fs.writeFileSync("./data/rawxml.xml", body);
         console.log("Done Writing to file\n\n");
-        processXML(file);
     });
 }
 
 
 
 // Now make the request
-var req = https.get(options, getXML);
-//req.end(processXML(file));
+var req = https.get(config.xml, getXML);
+
 
 /*
 
@@ -95,7 +92,6 @@ function processXML(xmlfile) {
             //console.log(ipv4Addresses);
             removeDup();
             finishedJSON(ipv4Addresses, ipv6Addresses, domains);
-
             return false;
         }
 
@@ -170,3 +166,21 @@ function removeDup() {
     });
 
 }
+
+addlists.forEach(function (names) {
+    if (names == "o365_ipv4_al") {
+        var fileName = "./data/ipv4.json";
+    } else if (names == "o365_ipv6_al") {
+        var fileName = "./data/ipv6.json";
+    } else {
+        var fileName = "./data/domain.json";
+    }
+    icontrol.testExist(addressBase, fileName, function (result) {
+        var address = addressBase + names;
+        if (result) {
+            icontrol.ModifyAddressList(address, names);
+        } else {
+            icontrol.CreateAddressList(address, names);
+        }
+    });
+});

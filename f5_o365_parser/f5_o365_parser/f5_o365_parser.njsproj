@@ -28,7 +28,7 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="f5_icontol.js">
+    <Compile Include="f5_icontrol.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="main.js" />
@@ -38,6 +38,12 @@
     <Compile Include="parseandstore.js">
       <SubType>Code</SubType>
     </Compile>
+    <Content Include="data\config.json">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="data\domain.json" />
+    <Content Include="data\ipv4.json" />
+    <Content Include="data\ipv6.json" />
     <Content Include="package.json" />
     <Content Include="README.md" />
   </ItemGroup>
