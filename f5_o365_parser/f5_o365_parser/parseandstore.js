@@ -1,16 +1,16 @@
-﻿var fs = require('fs');
+﻿//var fs = require('fs');
 var ipregex = require('ip-regex');
 var lr = require('line-reader');
-var file = './data/rawxml.xml';
+//var file = './data/rawxml.xml';
 
 var ipv4Addresses = [];
 var ipv6Addresses = [];
 var domains = [];
 
-function processXML(xmlfile) {
+exports.processXML = function (file, cb) {
     console.log("Reading XML\n\n");
 
-    lr.eachLine(xmlfile, function (line, last) {
+    lr.eachLine(file, function (line, last) {
 
         var regDate = /"(.*?)"/;
         var regAddress = /\<address\>(.*?)\<\/address\>/;
@@ -19,7 +19,12 @@ function processXML(xmlfile) {
 
         if (last) {
             console.log("End of File\n\n");
-            return false;
+            //var addresses
+            cb(null, {
+                ipv4: ipv4Addresses,
+                ipv6: ipv6Addresses,
+                dns: domains
+            });
         }
 
         if (line.includes("updated")) {
@@ -40,11 +45,11 @@ function processXML(xmlfile) {
                 //console.log("IPv6 Address: " + address);
                 ipv6Addresses.push(address);
             } else {
-                console.log("Domain Address " + address + " ignored");
+                //console.log("Domain Address " + address + " ignored");
                 if (address.includes("http")) {
-                    console.log("Found URL with HTTP in it " + address);
+                    //console.log("Found URL with HTTP in it " + address);
                     var urlArray = address.match(regURL);
-                    console.log("urlArray: " + urlArray + " Length: " + urlArray.length);
+                    //console.log("urlArray: " + urlArray + " Length: " + urlArray.length);
                     var url = urlArray[1];
                     domains.push(address);
                 } else {
@@ -52,12 +57,5 @@ function processXML(xmlfile) {
                 }
             }
         }
-
     });
-
-
-}
-module.exports = processXML;
-module.exports = ipv4Addresses;
-module.exports = ipv6Addresses;
-module.exports = domains;
+};

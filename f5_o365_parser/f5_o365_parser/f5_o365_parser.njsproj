@@ -28,7 +28,13 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="buildjson.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="f5_icontrol.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="index.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="main.js" />

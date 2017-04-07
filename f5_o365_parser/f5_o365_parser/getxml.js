@@ -1,31 +1,13 @@
-﻿var https = require('https');
+﻿var request = require('request');
 var fs = require('fs');
 
-module.exports = function(response) {
-    
-    var options = {
-        host: 'support.content.office.net',
-        port: '443',
-        path: '/en-us/static/O365IPAddresses.xml'
-    };
-    var req = function (response) {
-        // Continuously update stream with data
-        var body = '';
-        response.on('data', function (data) {
-            body += data;
-        });
-        response.on('end', function () {
-            // Data received completely
-            // Parse the XML received from MS into JSON
-            console.log('\n\nDone Reading XML. Now writing to file.\n\n');
-            //console.log(body);
+exports.getXML = function (address, cb) {
+    request(address, function (err, response, body) {
+        if (!err && response.statusCode == 200) {
             fs.writeFileSync("./data/rawxml.xml", body);
-            console.log("Done Writing to file\n\n");
-            //processXML(file);
-
-            //console.log("Address:", jsondata.address);
-        });
-    }
-}
-
-//module.exports = getXML;
+            cb(true); // invoke callback function with the value you want to pass back
+        } else {
+            cb(new Error('Error returning data'));
+        } 
+    });
+};
