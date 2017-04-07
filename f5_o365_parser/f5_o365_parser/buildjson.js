@@ -14,10 +14,11 @@
             break;
     }
 
-    arrayValue.forEach(function (arrayValue) {
+    for (var i = 0, len = arrayValue.length; i < len; i++) {
 
         console.log(`Building JSON for ${alName}`);
-        arrayValue = arrayValue + `{ "name": "${arrayValue}" }, `;
-
-    });
+        jsonData = jsonData + `{ "name": "${arrayValue}" }, `;
+    };
+    jsonData = jsonData + " ] }";
+    cb(jsonData);
 }
